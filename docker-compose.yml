@@ -14,8 +14,8 @@ services:
       - "${HOST_PORT:-3000}:80"
     restart: unless-stopped
     volumes:
-      # 使用 DOCSIFY_BASE_PATH 环境变量动态配置文档路径（去除尾部斜杠）
-      - ./${DOCSIFY_BASE_PATH:-docs}:/usr/share/nginx/html/${DOCSIFY_BASE_PATH:-docs}:ro
+      # 使用 DOCSIFY_BASE_PATH 环境变量动态配置文档路径（支持相对路径和绝对路径）
+      - ${DOCSIFY_BASE_PATH:-./docs}:/usr/share/nginx/html/${DOCSIFY_BASE_PATH:-docs}:ro
       - ./static:/usr/share/nginx/html/static:ro
     environment:
       # 自动刷新配置（开发模式）
