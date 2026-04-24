@@ -1,6 +1,7 @@
 # FourFour Docsify
 
 A lightweight static documentation site built with [Docsify](https://docsify.js.org/#/?id=docsify), supporting Docker containerized deployment.
+![image-20260424154915179](static/README.assets/image-20260424154915179.png)
 
 ## Table of Contents
 
