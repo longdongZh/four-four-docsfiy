@@ -1,6 +1,6 @@
 # Four Four Docsfiy
 
-基于 Docsify 的静态文档站点，支持 Docker 容器化部署。
+基于 Docsify 的静态文档网站生成器，所写即所得，支持 Docker 容器化部署。
 
 ![image-20260424154915179](static/README.assets/image-20260424154915179.png)
 ## 目录

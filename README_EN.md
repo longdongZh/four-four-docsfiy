@@ -1,6 +1,6 @@
 # Four Four Docsify
+A static document website generator based on [Docsify](https://docsify.js.org/#/?id=docsify), what you write is what you get, and supports Docker containerized deployment
 
-A lightweight static documentation site built with [Docsify](https://docsify.js.org/#/?id=docsify), supporting Docker containerized deployment.
 ![image-20260424154915179](static/README.assets/image-20260424154915179.png)
 
 ## Table of Contents
