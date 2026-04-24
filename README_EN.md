@@ -471,6 +471,6 @@ If you have any questions, please contact us through:
 
 ---
 
-**FourFour** - Making documentation management easier 🚀
+**FourFour** - Sorry for making you laugh. I hope your document management becomes simpler.🚀
 
 ![logo](./docs/_coverpage.assets/fourfour.png)

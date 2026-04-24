@@ -471,6 +471,6 @@ docker-compose config
 
 ---
 
-**FourFour** - 让文档管理更简单 🚀
+**FourFourDocsfiy** - 不好意思，让您贱笑了，希望您的文档管理更简单 🚀
 
 ![logo](./docs/_coverpage.assets/fourfour.png)
