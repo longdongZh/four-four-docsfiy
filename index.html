@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FourFour Docsify</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="renderer" content="webkit">
+  <!-- 禁用缓存（开发环境） -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="static/css/ext.css">
+  <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+  <!--[if lt IE 9]>
+    <script src="https://gcore.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://gcore.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/icon/favicon-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/icon/favicon-32x32.ico">
+  <link rel="manifest" href="static/icon/site.webmanifest">
+</head>
+<body>
+  <div id="app">老弟别急，知识正在准备...</div>
+  <script>
+    // 自动刷新功能（开发模式）
+    (function() {
+      // 只在 localhost 或明确启用时生效
+      var autoReloadEnabled = false;
+      
+      // 检查是否启用了自动刷新
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        autoReloadEnabled = true;
+      }
+      
+      if (!autoReloadEnabled) return;
+      
+      console.log('Auto-reload enabled for development');
+      
+      // 记录初始加载时间
+      var pageLoadTime = Date.now();
+      var checkInterval = 1000; // 每1秒检查一次
+      var lastModifiedTime = null;
+      
+      // 首次加载时获取当前的 Last-Modified
+      fetch('/index.html?t=' + Date.now(), { 
+        method: 'HEAD',
+        cache: 'no-cache'
+      })
+      .then(function(response) {
+        lastModifiedTime = response.headers.get('Last-Modified');
+        console.log('Initial Last-Modified:', lastModifiedTime);
+      });
+      
+      setInterval(function() {
+        // 通过检查 index.html 的变化来判断是否需要刷新
+        fetch('/index.html?t=' + Date.now(), { 
+          method: 'HEAD',
+          cache: 'no-cache'
+        })
+        .then(function(response) {
+          var currentModified = response.headers.get('Last-Modified');
+          if (currentModified && lastModifiedTime && currentModified !== lastModifiedTime) {
+            console.log('Page updated, reloading...');
+            console.log('Old:', lastModifiedTime, 'New:', currentModified);
+            location.reload(true); // true 表示强制从服务器重新加载
+          }
+          lastModifiedTime = currentModified;
+        })
+        .catch(function(err) {
+          console.error('Auto-reload check failed:', err);
+        });
+      }, checkInterval);
+      
+      // 监听 visibilitychange 事件，当用户返回页面时也检查更新
+      document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+          pageLoadTime = Date.now(); // 重置加载时间
+        }
+      });
+    })();
+
+    window.$docsify = {
+      name: 'FourFour<span class="mg-badge">2.20.1</span>',
+      repo: 'https://gitee.com/ArtizanZhang/docsfork2docsfiy',
+      coverpage: true,
+      loadNavbar: true,
+      loadSidebar: true,
+      autoHeader: true,
+      onlyCover: false,
+      routerMode: 'hash',
+      subMaxLevel: 5,
+      basePath: 'docs/',
+      sidebarDisplayLevel: 5, // set sidebar display level
+      count:{
+        countable:true,
+        fontsize:'0.9em',
+        color:'rgb(90,90,90)',
+        language:'chinese'
+      },
+      search: 'auto',
+      copyCode: {
+        buttonText : '点击复制',
+        errorText  : '错误',
+        successText: '复制成功'
+      },
+      footer: {
+        // copy: '<span>mango mei &copy; 2023</span>',
+        // auth: '粤ICP备17082965号',
+
+        pre: '',
+        style: 'text-align: center;',
+        class: 'className'
+      },
+      vueComponents: {},// 可自定义
+      timeUpdater: {
+        text: "<div align='right' width='100%' style='color:gray;font-size:16px;margin-top:10px;'>最后更新时间: {docsify-updated}</div>",
+        formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
+      },
+      // note tip warning attention https://github.com/fzankl/docsify-plugin-flexible-alerts
+      'flexible-alerts': {
+        style: 'callout'
+      },
+      progress: {
+          position: "top",
+          color: "var(--theme-color,#42b983)",
+          height: "3px",
+      },
+      tabs: {
+        persist    : true,      // default
+        sync       : true,      // default
+        theme      : 'classic', // default
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      },
+      // docsify-plugin-toc
+      toc: {
+        tocMaxLevel: 5,
+        target: 'h1, h2, h3, h4, h5',
+        ignoreHeaders:  ['<!-- {docsify-ignore} -->', '<!-- {docsify-ignore-all} -->']
+      },
+      // 百度统计ID
+      baiduTjId: "",
+      // 开启busuanzi
+      busuanzi: true,
+      // 开启远程md
+      remoteMarkdown: {
+        tag: 'rmd',
+      },
+      // docsify ads 配置广告
+      ads: [
+      // {
+      //     img: 'https://dn-lego-static.qbox.me/cps/1638355965-480x300.jpg',
+      //     href: 'https://s.qiniu.com/zqiMBz'
+      //   },
+        // {
+        //   img: 'https://dn-lego-static.qbox.me/cps/1638355965-480x300.jpg',
+        //   href: 'https://s.qiniu.com/VJFJvi'
+        // },
+
+      ],
+      // giscus评论
+      // giscus:{
+      //   repo: "mg0324/docsify-comments",
+      //   repoId: "R_kgDOI68LwA",
+      //   category: "Announcements",
+      //   categoryId: "DIC_kwDOI68LwM4CUDhM",
+      //   mapping: "url",
+      //   reactionsEnabled: "0",
+      //   strict: "1",
+      //   emitMetadata: "0",
+      //   inputPosition: "bottom",
+      //   theme: "light",
+      //   lang: "zh-CN",
+      //   loading: "lazy"
+      // },
+      valine:{
+        appId: "",
+        appKey: ""
+      },
+      markdown: {
+        renderer: {
+          code: function (code, lang) {
+            if (lang === 'drawio') {
+              if (window.drawioConverter) {
+                console.log('drawio 转化中')
+                return window.drawioConverter(code)
+              } else {
+                return `<div class='drawio-code'>${code}</div>`
+              }
+            } else if(lang === 'pdf'){
+              var pdf_renderer = function(code, lang, verify) {
+                  function unique_id_generator(){
+                      function rand_gen(){
+                          return Math.floor((Math.random()+1) * 65536).toString(16).substring(1);
+                      }
+                      return rand_gen() + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + '-' + rand_gen() + rand_gen() + rand_gen();
+                  }
+                  if(lang && !lang.localeCompare('pdf', 'en', {sensitivity: 'base'})){
+                      if(verify){
+                          return true;
+                      }else{
+                          var divId = "markdown_code_pdf_container_" + unique_id_generator().toString();
+                          var container_list = new Array();
+                          if(localStorage.getItem('pdf_container_list')){
+                              container_list = JSON.parse(localStorage.getItem('pdf_container_list'));
+                          }
+                          container_list.push({"pdf_location": code, "div_id": divId});
+                          localStorage.setItem('pdf_container_list', JSON.stringify(container_list));
+                          return (
+                              '<div style="margin-top:'+ PDF_MARGIN_TOP +'; margin-bottom:'+ PDF_MARGIN_BOTTOM +';" id="'+ divId +'">'
+                                  + '<a href="'+ code + '"> Link </a> to ' + code +
+                              '</div>'
+                          );
+                      }
+                  }
+                  return false;
+              }
+              if(pdf_renderer(code, lang, true)){
+                return pdf_renderer(code, lang, false);
+              }
+            }else {
+              return this.origin.code.apply(this, arguments);
+            }
+          }
+        }
+      },
+      // contributors: {
+      //   repo: 'docsify-template',
+      //   ignores: [],
+      //   style: {
+      //       color: '#ffffff',
+      //       bgColor: '#404040'
+      //   },
+      //   image: {
+      //       size: 30,
+      //       isRound: true,
+      //       margin: '0.5em'
+      //   },
+      //   load: {
+      //       isOpen: true,
+      //       color: "#009999"
+      //   }
+      // },
+      auth: {
+        enable: true, // 是否开启
+        password: "", // md5密码
+        title: "请输入密码", // 设置标题
+        paths: ["^/test"] // 需要认证的路径，支持正则表达式匹配
+      }
+      //gitalk评论
+      // gitalk: {
+      //   clientID: 'a80e57a9ad7a92dd2c8d',
+      //   clientSecret: 'c38424e2af55c1549f52de1564eb71b4a94c10ea',
+      //   repo: 'docsify-note-02',
+      //   owner: 'mg0324',
+      //   admin: ['mg0324']
+      // },
+      // plugins: [
+      //   function(hook, vm) {
+      //     hook.init(function() {
+      //       // 初始化完成后调用，只调用一次，没有参数。
+      //       console.info("init!")
+
+      //     });
+
+      //     hook.beforeEach(function(content) {
+      //       // 每次开始解析 Markdown 内容时调用
+      //       // ...
+      //       console.info("beforeEach!")
+
+      //       return content;
+      //     });
+
+      //     hook.afterEach(function(html, next) {
+      //       // 解析成 html 后调用。
+      //       // beforeEach 和 afterEach 支持处理异步逻辑
+      //       // ...
+      //       // 异步处理完成后调用 next(html) 返回结果
+      //       console.info("afterEach!")
+      //       var busuanzi = '<div style="text-align:center;">本文阅读量<span id="busuanzi_value_page_pv"></span> 已有<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人访问 <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span></div>';
+      //       html = html + busuanzi;
+      //       renderBusuanzi();
+      //       next(html);
+      //     });
+
+      //     hook.doneEach(function() {
+      //       // 每次路由切换时数据全部加载完成后调用，没有参数。
+      //       // ...
+      //       console.info("doneEach!")
+      //     });
+
+      //     hook.mounted(function() {
+      //       // 初始化并第一次加载完成数据后调用，只触发一次，没有参数。
+      //       console.info("mounted!")
+
+      //     });
+
+      //     hook.ready(function() {
+      //       // 初始化并第一次加载完成数据后调用，没有参数。
+      //       console.info("ready!")
+
+
+      //     });
+      //   }
+      // ]
+
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4.13.0/lib/docsify.js"></script>
+  <!-- 搜索 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 图片放大缩小支持 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 拷贝文字内容 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 字数插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+  <!-- 分页导航 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 侧边栏扩展与折叠 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <!-- valine -->
+<!--  <script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm/docsify-mango-valine@1.1.1/dist/docsify-mango-valine.min.js"></script>-->
+  <!-- busuanzi -->
+<!--  <script src="https://cdn.jsdelivr.net/npm/docsify-busuanzi@1.0.1/dist/docsify-busuanzi.min.js"></script>-->
+  <!-- 页脚信息 -->
+<!--  <script src="//cdn.jsdelivr.net/npm/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>-->
+  <!-- 最近更新时间 -->
+<!--  <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>-->
+  <!-- flexible alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-flexible-alerts"></script>
+  <!-- 美化进度条 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
+  <!-- docsify-accordion -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-accordion/src/style.css">
+  <script src="//cdn.jsdelivr.net/npm/docsify-accordion/src/index.js"></script>
+  <!-- docsify-tabs (latest v1.x.x) -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <!-- docsify-backTop -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/Sumsung524/docsify-backTop/dist/docsify-backTop.min.js"></script> -->
+  <!-- docsify-plugin-toc -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
+  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+  <!-- 百度统计 -->
+<!--  <script src="https://cdn.jsdelivr.net/npm/docsify-baidu-tj@1.0.2/dist/docsify-baidu-tj.min.js"></script>-->
+  <!-- giscus评论  -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-giscus@1.0.2/dist/giscus.css">
+  <script src="https://cdn.jsdelivr.net/npm/docsify-giscus@1.0.2/dist/docsify-giscus.min.js"></script> -->
+  <!-- GitTalk评论 -->
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script> -->
+  <!-- html preview demo-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.css"/>
+  <script src="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.js"></script>
+  <!-- remote-markdown -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-remote-markdown/dist/docsify-remote-markdown.min.js"></script>
+  <!-- docsify-drawio -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-drawio/viewer.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/docsify-drawio/drawio.js'></script>
+  <!-- docsify-pangu 加空格-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+  <!-- docsify-kroki 支持全热门图形化语言-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-kroki"></script>
+  <!-- docsify ads -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-ads@1.0.2/dist/docsify-ads.min.js"></script>
+  <!-- docsify-contributors -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-contributors@latest/dist/index.min.js"></script>
+  <!-- docsify pdf embed -->
+  <script src="//cdn.jsdelivr.net/npm/pdfobject@2.2.8/pdfobject.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+  <!-- docsify-auth -->
+<!--  <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/build/sha256.min.js"></script>-->
+<!--  <script src="https://cdn.jsdelivr.net/npm//docsify-auth@1.2.0/dist/docsify-auth.min.js"></script>-->
+</body>
+</html>
