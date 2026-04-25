@@ -21,7 +21,7 @@ services:
       # 自动刷新配置（开发模式）
       - AUTO_RELOAD=${AUTO_RELOAD:-false}
       # Docsify 基础配置
-      - DOCSIFY_NAME=${DOCSIFY_NAME:-FourFour Docsify}
+      - DOCSIFY_NAME=${DOCSIFY_NAME:-Four Four Docsify}
       - DOCSIFY_VERSION=${DOCSIFY_VERSION:-2.20.1}
       - DOCSIFY_BASE_PATH=${DOCSIFY_BASE_PATH:-docs}/
       - DOCSIFY_ROUTER_MODE=${DOCSIFY_ROUTER_MODE:-hash}
