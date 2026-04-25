@@ -307,31 +307,6 @@ buzhile-help-docs/
 
 ## 常用命令
 
-### Docker 相关
-
-```bash
-# 构建镜像
-docker-compose build
-
-# 启动服务
-docker-compose up -d
-
-# 重启服务
-docker-compose restart
-
-# 停止服务
-docker-compose down
-
-# 查看日志
-docker-compose logs -f
-
-# 进入容器
-docker-compose exec docs sh
-
-# 查看容器状态
-docker-compose ps
-```
-
 ### 文档更新
 
 #### 开发模式（推荐）

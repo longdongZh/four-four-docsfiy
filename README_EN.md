@@ -307,31 +307,6 @@ fourfour-docsfiy/
 
 ## Common Commands
 
-### Docker Related
-
-```bash
-# Build image
-docker-compose build
-
-# Start service
-docker-compose up -d
-
-# Restart service
-docker-compose restart
-
-# Stop service
-docker-compose down
-
-# View logs
-docker-compose logs -f
-
-# Enter container
-docker-compose exec docs sh
-
-# Check container status
-docker-compose ps
-```
-
 ### Documentation Updates
 
 #### Development Mode (Recommended)
