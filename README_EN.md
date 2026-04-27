@@ -301,8 +301,7 @@ fourfour-docsfiy/
 ├── Dockerfile           # Docker image build file
 ├── docker-compose.yml   # Docker Compose configuration
 ├── .env.example         # Environment variables example
-├── .dockerignore        # Docker ignore file
-└── publish.sh           # Publish script
+├── .dockerignore        # Docker ignore file 
 ```
 
 ## Common Commands
@@ -446,6 +445,6 @@ If you have any questions, please contact us through:
 
 ---
 
-**FourFour** - Sorry for making you laugh. I hope your document management becomes simpler.🚀
+**FourFour** - Excuse my cheap trick. Hope your document management becomes simpler.🚀
 
 ![logo](./docs/_coverpage.assets/fourfour.png)
